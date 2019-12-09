@@ -8,12 +8,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/reed665/validate-arguments.git"
+    "url": "git+https://github.com/reed665/valarg.git"
   },
   "author": "",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/reed665/validate-arguments/issues"
+    "url": "https://github.com/reed665/valarg/issues"
   },
-  "homepage": "https://github.com/reed665/validate-arguments#readme"
+  "homepage": "https://github.com/reed665/valarg#readme"
 }
