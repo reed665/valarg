@@ -1,15 +1,5 @@
 const nullOrUndefined = value => value === undefined || value === null;
 
-const argTypes = [
-    String,
-    Number,
-    Boolean,
-    Array,
-    Object,
-    Function,
-    Promise,
-];
-
 const detectType = (arg) => {
     if (typeof arg === 'string') return String;
     if (typeof arg === 'number') return Number;
@@ -17,6 +7,7 @@ const detectType = (arg) => {
     if (Array.isArray(arg)) return Array;
     if (typeof arg === 'function') return Function;
     if (arg instanceof Promise) return Promise;
+    if (arg instanceof Date) return Date;
     if (typeof arg === 'object' && arg !== null) return Object;
 }
 
@@ -26,6 +17,7 @@ const typeToString = (type) => {
     if (type === Boolean) return 'Boolean';
     if (type === Array) return 'Array';
     if (type === Object) return 'Object';
+    if (type === Date) return 'Date';
     if (type === Function) return 'Function';
     if (type === Promise) return 'Promise';
 }

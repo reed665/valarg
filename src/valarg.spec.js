@@ -73,6 +73,32 @@ describe('valarg', () => {
         }).toThrow('Argument type String expected but Number type received');
     })
 
+    it('does not throw if arg type is Date and arg is date', () => {
+        expect(() => {
+            const arg = new Date()
+
+            valarg(arg, { required: true, type: Date })
+        }).not.toThrow();
+    })
+
+    it('throws if arg type is Date and arg is boolean', () => {
+        expect(() => {
+            valarg(true, { required: true, type: Date })
+        }).toThrow();
+    })
+
+    it('does not throw if arg type is Boolean and arg is true', () => {
+        expect(() => {
+            valarg(true, { type: Boolean })
+        }).not.toThrow();
+    })
+
+    it('does not throw if arg type is Boolean and arg is false', () => {
+        expect(() => {
+            valarg(false, { required: true, type: Boolean })
+        }).not.toThrow();
+    })
+
     it('throws if arg type is Function and arg is Promise', () => {
         expect(() => {
             const arg = new Promise(resolve => resolve());
