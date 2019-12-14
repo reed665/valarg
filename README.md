@@ -11,16 +11,18 @@ npm install valarg
 ## Usage
 
 ```javascript
-const sum = (x, y) => {
-    valarg(x, { required: true, type: Number })
-    valarg(y, { required: true, type: Number })
+const valarg = require('valarg');
 
-    return x + y;
+const divide = (x, y) => {
+    valarg(x, { required: true, type: Number })
+    valarg(y, { required: true, type: Number, validator: val => val !== 0 })
+
+    return x / y;
 }
 
-sum(1, 'foo')
+divide(42, 0)
 ```
 
 ```
-Error: Argument type Number expected but String type received
+Error: Invalid argument value
 ```

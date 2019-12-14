@@ -34,6 +34,7 @@ const valarg = (arg, options = {}) => {
     const {
         required = false,
         type: expectedType = undefined,
+        validator = null,
     } = options;
 
     if (required && nullOrUndefined(arg)) {
@@ -51,6 +52,10 @@ const valarg = (arg, options = {}) => {
             const msg = `Argument type ${expectedTypeString} expected but ${argTypeString} type received`;
             throw new Error(msg)
         }
+    }
+
+    if (validator && !validator(arg)) {
+        throw new Error('Invalid argument value')
     }
 
     return null;

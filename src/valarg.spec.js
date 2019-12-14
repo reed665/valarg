@@ -81,4 +81,16 @@ describe('valarg', () => {
         }).toThrow('Argument type Function expected but Promise type received')
     })
 
+    it('does not throw if validator returns true', () => {
+        expect(() => {
+            valarg(['foo', 'bar'], { type: Array, validator: val => val.length > 0 })
+        }).not.toThrow();
+    })
+
+    it('throws if validator returns false', () => {
+        expect(() => {
+            valarg([], { type: Array, validator: val => val.length > 0 })
+        }).toThrow('Invalid argument value');
+    })
+
 })
