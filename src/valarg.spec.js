@@ -55,6 +55,12 @@ describe('valarg', () => {
         }).toThrow();
     })
 
+    it('does not throw if arg is undefined and it is not required', () => {
+        expect(() => {
+            valarg(undefined, { type: String })
+        }).not.toThrow();
+    })
+
     it('throws if arg is required and arg is null', () => {
         expect(() => {
             valarg(null, { required: true })
