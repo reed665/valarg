@@ -19,6 +19,6 @@
   },
   "homepage": "https://github.com/reed665/valarg#readme",
   "devDependencies": {
-    "jest": "^24.9.0"
+    "jest": "^25.1.0"
   }
 }
